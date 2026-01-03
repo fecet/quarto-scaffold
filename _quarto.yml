@@ -1,0 +1,63 @@
+project:
+  pre-render:
+    - just sync-assets
+    - just scss-combine
+
+format:
+  revealjs:
+    # 调试：保留中间 markdown 文件
+    keep-md: true
+
+    # Leader-line library (required by ofkoru/leader-line plugin)
+    include-in-header:
+      - text: '<script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>'
+
+    # Tailwind CSS (for pi0 architecture diagram)
+    # Lightbox for images
+    lightbox: true
+
+    # 主题与样式
+    theme: [default, styles/custom.scss]
+
+    # 分辨率设置（16:9 比例，适合现代投影）
+    width: 1920
+    height: 1080
+    margin: 0.04
+
+    # 导航与控制
+    slide-number: "c/t"
+    show-slide-number: all
+    controls: true
+    progress: true
+    hash: true
+    scrollable: false
+
+    # 视图与交互
+    menu: true
+    preview-links: true
+
+    # 过渡与性能
+    transition: fade
+    view-distance: 10
+    preload-iframes: true
+
+    # 代码显示
+    code-overflow: wrap
+
+    # 使用 KaTeX（本地资源，避免 CDN）
+    html-math-method: katex
+
+    # 插件
+    revealjs-plugins:
+      - gridlayout
+      - masonry
+      - ofkoru/leader-line
+    filters:
+      - diagram
+      - notes-sync
+      - progressive
+      - reuse
+      - gridlayout
+
+execute:
+  echo: false

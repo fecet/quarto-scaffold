@@ -1,0 +1,111 @@
+// ============================================
+// Material Design 3 Theme Variables
+// Source Color: Google Blue #1a73e8
+// ============================================
+
+// -----------------------------------------------
+// 1. Primary Tonal Palette
+// -----------------------------------------------
+$md3-primary-0: #000000 !default;
+$md3-primary-10: #001d36 !default;
+$md3-primary-20: #003258 !default;
+$md3-primary-30: #00497d !default;
+$md3-primary-40: #1a73e8 !default;
+$md3-primary-50: #4089f0 !default;
+$md3-primary-60: #5c9ef5 !default;
+$md3-primary-70: #8ab4f8 !default;
+$md3-primary-80: #a8c7fa !default;
+$md3-primary-90: #d3e3fd !default;
+$md3-primary-95: #ecf3fe !default;
+$md3-primary-99: #fafcff !default;
+$md3-primary-100: #ffffff !default;
+
+// -----------------------------------------------
+// 2. Semantic Color Roles
+// -----------------------------------------------
+// Primary
+$color-primary: $md3-primary-40 !default;
+$color-on-primary: #ffffff !default;
+$color-primary-container: $md3-primary-90 !default;
+$color-on-primary-container: $md3-primary-10 !default;
+
+// Error (Google Red)
+$color-error: #d93025 !default;
+$color-on-error: #ffffff !default;
+$color-error-container: #fce8e6 !default;
+
+// Success (Google Green)
+$color-success: #34a853 !default;
+$color-on-success: #ffffff !default;
+
+// Warning (Google Yellow)
+$color-warning: #f9ab00 !default;
+$color-on-warning: #1f1f1f !default;
+
+// -----------------------------------------------
+// 3. Surface System
+// -----------------------------------------------
+$color-background: $md3-primary-99 !default;
+$color-on-background: #1f1f1f !default;
+$color-surface: $md3-primary-99 !default;
+$color-on-surface: #1f1f1f !default;
+$color-surface-variant: #e1e3e6 !default;
+$color-on-surface-variant: #44474a !default;
+
+// Surface Containers
+$color-surface-container-lowest: #ffffff !default;
+$color-surface-container-low: #f8f9fa !default;
+$color-surface-container: #f1f3f4 !default;
+$color-surface-container-high: #e8eaed !default;
+$color-surface-container-highest: #dadce0 !default;
+
+// -----------------------------------------------
+// 4. Outline
+// -----------------------------------------------
+$color-outline: #747775 !default;
+$color-outline-variant: #c4c7c5 !default;
+
+// -----------------------------------------------
+// 5. Legacy Aliases (backward compatibility)
+// -----------------------------------------------
+$color-text: $color-on-surface !default;
+$color-text-muted: $color-on-surface-variant !default;
+$color-text-heading: $color-on-background !default;
+$color-bg: $color-background !default;
+$color-bg-subtle: $color-surface-container-low !default;
+$color-bg-code: $color-surface-container !default;
+$color-border: $color-outline-variant !default;
+$color-border-subtle: $color-surface-container-highest !default;
+$color-danger: $color-error !default;
+$color-selection-bg: $md3-primary-90 !default;
+
+// -----------------------------------------------
+// 6. MD3 Shape Scale
+// -----------------------------------------------
+$shape-none: 0 !default;
+$shape-extra-small: 4px !default;
+$shape-small: 8px !default;
+$shape-medium: 12px !default;
+$shape-large: 16px !default;
+$shape-extra-large: 28px !default;
+$shape-full: 9999px !default;
+
+// -----------------------------------------------
+// 7. MD3 Elevation
+// -----------------------------------------------
+$elevation-0: none !default;
+$elevation-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15) !default;
+$elevation-2: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15) !default;
+$elevation-3: 0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15) !default;
+$elevation-4: 0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15) !default;
+$elevation-5: 0px 4px 4px 0px rgba(0, 0, 0, 0.3), 0px 8px 12px 6px rgba(0, 0, 0, 0.15) !default;
+
+// -----------------------------------------------
+// 8. MD3 Spacing (8px Grid)
+// -----------------------------------------------
+$spacing-xs: 4px !default;
+$spacing-sm: 8px !default;
+$spacing-md: 16px !default;
+$spacing-lg: 24px !default;
+$spacing-xl: 32px !default;
+$spacing-2xl: 48px !default;

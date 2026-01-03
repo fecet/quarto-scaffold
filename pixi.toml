@@ -1,0 +1,31 @@
+[workspace]
+authors = ["fecet <xiezej@gmail.com>"]
+channels = ["https://repo.prefix.dev/meta-forge", "conda-forge"]
+name = "agi-deck"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+decktape = ">=3.15.0,<4"
+quarto = "*"
+python = "*"
+plotly = "*"
+jupyterlab = "*"
+numpy = "*"
+pandas = "*"
+watchdog = "*"
+livereload = "*"
+pillow = "*"
+scikit-image = "*"
+matplotlib = "*"
+
+[pypi-dependencies]
+neopyter = "*"
+blob-masks = "*"
+
+
+[activation.env]
+JUPYTER_TOKEN = "123"
+CODEX_HOME = "$PIXI_PROJECT_ROOT/.codex"

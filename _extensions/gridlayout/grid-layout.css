@@ -1,0 +1,56 @@
+/*
+ * Grid Layout System
+ *
+ * CSS Variables:
+ *   --cols: column definition (e.g., "1fr 2fr" or "3")
+ *   --rows: row definition (e.g., "auto 1fr")
+ *   --gap: gap size (default: 1em)
+ */
+
+/* Flex container for slides with grid (so grid fills remaining space after h2) */
+.reveal .slides section:has(.grid) {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+}
+
+.reveal .slides section:has(.grid) > h2 {
+  flex-shrink: 0;
+}
+
+/* .grid - Standard CSS Grid */
+.reveal .grid {
+  display: grid;
+  grid-template-columns: var(--cols, 1fr);
+  grid-template-rows: var(--rows, auto);
+  gap: var(--gap, 1em);
+  flex: var(--flex, 0 0 auto);
+  min-height: 0;
+  align-content: start;
+}
+
+/* When rows use fr units, grid must fill available space */
+.reveal .grid[data-fr-rows] {
+  flex: 1 1 auto;
+  align-content: stretch;
+}
+
+/* Slot styling (grid children) */
+.reveal .slot {
+  min-height: 0;
+  overflow: auto;
+}
+
+.reveal .slot img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Span utilities */
+.reveal .span-2 { grid-column: span 2; }
+.reveal .span-3 { grid-column: span 3; }
+.reveal .span-4 { grid-column: span 4; }
+.reveal .row-span-2 { grid-row: span 2; }
+.reveal .row-span-3 { grid-row: span 3; }
+.reveal .row-span-4 { grid-row: span 4; }

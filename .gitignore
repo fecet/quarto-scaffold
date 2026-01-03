@@ -1,0 +1,21 @@
+
+# pixi environments
+.pixi
+*.egg-info
+*_files
+
+/.quarto/
+.codex/*
+!.codex/config.toml
+
+**/*.quarto_ipynb
+styles/custom.scss
+styles/custom.scss
+*.revealjs.md
+raw-assets
+repomix-output.*
+dist
+slide.pdf
+deck.html
+template.html
+out.md

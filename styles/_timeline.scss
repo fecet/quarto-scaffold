@@ -1,0 +1,107 @@
+// ============================================
+// Timeline Component
+// ============================================
+
+// Slide containing timeline: normal flow, no forced height
+.reveal .slides section:has(.timeline) {
+    display: block !important;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1em;
+    position: relative;
+    padding: 0;
+    margin-top: 0;
+
+    // Central Line
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $color-surface-container-highest;
+        transform: translateY(-50%);
+        z-index: 0;
+    }
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 2.5em; // Space for the line and connectors
+    position: relative;
+    font-size: 0.85em;
+
+    // Dot on the line
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 12px;
+        background: $color-primary;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        box-shadow: 0 0 0 4px $color-surface;
+    }
+
+    // Connector Line
+    &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 2px;
+        background: $color-surface-container-highest;
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    .content {
+        background: $color-surface-container-low;
+        padding: 1em 1.2em;
+        border-radius: $shape-medium;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: $elevation-2;
+        }
+    }
+
+    // Odd items (Top)
+    &:nth-child(odd) {
+        .content {
+            grid-row: 1;
+            align-self: end;
+        }
+
+        // Connector from line up to content
+        &::before {
+            bottom: 50%;
+            height: 1.25em;
+        }
+    }
+
+    // Even items (Bottom)
+    &:nth-child(even) {
+        .content {
+            grid-row: 2;
+            align-self: start;
+        }
+
+        // Connector from line down to content
+        &::before {
+            top: 50%;
+            height: 1.25em;
+        }
+    }
+}

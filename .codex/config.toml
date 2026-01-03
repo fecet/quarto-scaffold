@@ -1,0 +1,23 @@
+approval_policy = "on-request"
+sandbox_mode = "danger-full-access"
+model = "gpt-5.2"
+model_reasoning_effort = "xhigh"
+
+[features]
+web_search_request = true
+
+[sandbox_workspace_write]
+network_access = true
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp"]
+env = {}
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@latest"]
+env = {}
+
+[notice.model_migrations]
+"gpt-5.2" = "gpt-5.2-codex"

@@ -1,0 +1,554 @@
+// ============================================
+// Material Design 3 Component Styles
+// ============================================
+
+/*-- scss:defaults --*/
+
+// Typography (保持 Inter)
+$font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !default;
+$font-family-monospace: 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace !default;
+
+// Map MD3 tokens to Quarto variables
+$body-bg: $color-bg !default;
+$body-color: $color-text !default;
+$link-color: $color-primary !default;
+$link-color-hover: $md3-primary-30 !default;
+
+// Headings
+$presentation-heading-color: $color-text-heading !default;
+$presentation-heading-font-weight: 600 !default;
+$presentation-h1-font-size: 2.5em !default;
+$presentation-h2-font-size: 1.75em !default;
+$presentation-h3-font-size: 1.4em !default;
+$presentation-font-size-root: 38px !default;
+
+// Code
+$code-block-bg: $color-bg-code !default;
+$code-block-border-color: transparent !default;
+$code-color: $color-error !default;
+
+// Selection
+$selection-bg: $color-selection-bg !default;
+$selection-color: $color-text !default;
+
+/*-- scss:rules --*/
+
+// Google Fonts - Sci-Fi Title Font
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+// ============================================
+// Global Typography
+// ============================================
+.reveal {
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.6;
+}
+
+// H2 with MD3 left accent bar
+.reveal h2:not(:empty) {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0.4em;
+    position: relative;
+    padding-left: 24px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0.17em;
+        height: 100%;
+        background: $color-primary;
+        border-radius: $shape-full;
+    }
+}
+
+// Emphasis
+.reveal strong {
+    font-weight: 700;
+    color: inherit;
+}
+
+.reveal em {
+    color: $color-text-muted;
+    font-style: italic;
+}
+
+// ============================================
+// Blockquote - MD3 Style
+// ============================================
+.reveal blockquote {
+    border-left: 4px solid $color-primary;
+    background: $color-surface-container-low;
+    padding: $spacing-md $spacing-lg;
+    margin: 0 !important;
+    font-style: normal;
+    box-shadow: none;
+    border-radius: 0 $shape-medium $shape-medium 0;
+
+    p {
+        margin: 0;
+        line-height: 1.6;
+        color: $color-on-surface;
+    }
+
+    // Override Quarto's .reveal .slide ul/ol/li margins
+    ul, ol {
+        margin: 0 !important;
+        padding-left: 1.5em;
+    }
+
+    li:first-child {
+        margin-top: 0 !important;
+    }
+
+    li:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    p:empty {
+        display: none;
+    }
+}
+
+// ============================================
+// Code Blocks - MD3 Style
+// ============================================
+.reveal pre {
+    box-shadow: none;
+    border: none;
+    background: $color-surface-container;
+    border-radius: $shape-medium;
+    font-size: 0.55em;
+    line-height: 1.5;
+    padding: $spacing-md;
+}
+
+.reveal code {
+    font-family: $font-family-monospace;
+    padding: 0.15em 0.4em;
+    background: $color-surface-container;
+    border-radius: $shape-extra-small;
+    font-size: 0.9em;
+}
+
+// ============================================
+// Layout
+// ============================================
+.reveal .columns {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+.reveal .column {
+    flex: 1;
+}
+
+// ============================================
+// Progress & Controls
+// ============================================
+.reveal .slide-number {
+    color: $color-on-surface-variant;
+    background-color: transparent;
+    font-size: 0.65em;
+    font-weight: 500;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+}
+
+.reveal .progress {
+    background: $color-surface-container-high;
+    color: $color-primary;
+    height: 4px;
+}
+
+// Hide progress bar on title slide
+.reveal:has(#title-slide.present) .progress {
+    opacity: 0;
+}
+
+.reveal .controls {
+    color: $color-on-surface-variant;
+}
+
+// ============================================
+// Semantic Color Utilities (color-* prefix)
+// ============================================
+.color-primary {
+    color: $color-primary !important;
+}
+
+.color-error {
+    color: $color-error !important;
+}
+
+.color-success {
+    color: $color-success !important;
+}
+
+.color-warning {
+    color: $color-warning !important;
+}
+
+.color-muted {
+    color: $color-on-surface-variant !important;
+}
+
+// Text utilities
+.center {
+    text-align: center;
+}
+
+.small {
+    font-size: 0.8em;
+    color: $color-text-muted;
+}
+
+// ============================================
+// Pills - MD3 Filled Style
+// ============================================
+.reveal .pill-blue,
+.reveal .pill-red,
+.reveal .pill-green,
+.reveal .pill-yellow {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border-radius: $shape-full;
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: white !important;
+}
+
+.reveal .pill-blue {
+    background: $color-primary;
+}
+
+.reveal .pill-red {
+    background: $color-error;
+}
+
+.reveal .pill-green {
+    background: $color-success;
+}
+
+.reveal .pill-yellow {
+    background: $color-warning;
+    color: $color-on-warning !important;
+}
+
+// Tonal style variants
+.reveal .pill-blue-tonal {
+    background: $color-primary-container;
+    color: $color-on-primary-container !important;
+}
+
+.reveal .pill-red-tonal {
+    background: $color-error-container;
+    color: #5c0f0b !important;
+}
+
+// ============================================
+// Image Cards - MD3 Elevated Style
+// ============================================
+.reveal .img-card {
+    border: none;
+    border-radius: $shape-large;
+    box-shadow: $elevation-1;
+    overflow: hidden;
+    margin: 0.5em 0;
+}
+
+
+// ============================================
+// MD3 Surface Container Utilities
+// ============================================
+.surface-lowest {
+    background: $color-surface-container-lowest !important;
+}
+
+.surface-low {
+    background: $color-surface-container-low !important;
+}
+
+.surface {
+    background: $color-surface-container !important;
+}
+
+.surface-high {
+    background: $color-surface-container-high !important;
+}
+
+.surface-highest {
+    background: $color-surface-container-highest !important;
+}
+
+// ============================================
+// MD3 Elevation Utilities
+// ============================================
+.elevation-0 {
+    box-shadow: $elevation-0 !important;
+}
+
+.elevation-1 {
+    box-shadow: $elevation-1 !important;
+}
+
+.elevation-2 {
+    box-shadow: $elevation-2 !important;
+}
+
+.elevation-3 {
+    box-shadow: $elevation-3 !important;
+}
+
+.elevation-4 {
+    box-shadow: $elevation-4 !important;
+}
+
+.elevation-5 {
+    box-shadow: $elevation-5 !important;
+}
+
+// ============================================
+// MD3 Shape Utilities
+// ============================================
+.rounded-xs {
+    border-radius: $shape-extra-small !important;
+}
+
+.rounded-sm {
+    border-radius: $shape-small !important;
+}
+
+.rounded-md {
+    border-radius: $shape-medium !important;
+}
+
+.rounded-lg {
+    border-radius: $shape-large !important;
+}
+
+.rounded-xl {
+    border-radius: $shape-extra-large !important;
+}
+
+.rounded-full {
+    border-radius: $shape-full !important;
+}
+
+// ============================================
+// Hide Lightbox Fallback Links
+// ============================================
+.reveal p > a.lightbox + a {
+    display: none;
+}
+
+// ============================================
+// Callout Full Width in Grid
+// ============================================
+.reveal div.callout {
+    width: 100%;
+}
+
+// ============================================
+// Hide Scrollbars (presentation-friendly)
+// ============================================
+.reveal .slides section {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &,
+    * {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+// ============================================
+// Demo Video Highlight Border
+// ============================================
+.reveal .demo-highlight {
+    box-sizing: border-box;
+    border: 3px solid $color-warning;
+    border-radius: $shape-medium;
+    box-shadow: 0 0 15px rgba($color-warning, 0.4);
+}
+
+// ============================================
+// Footnote Reference (正文中的脚注标号)
+// ============================================
+.reveal sup {
+    color: $color-primary;
+    font-weight: 500;
+}
+
+// ============================================
+// Footnotes - 底部水平排列
+// ============================================
+.reveal .slides section aside:not(.notes) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 75%;
+    font-size: 0.38em;
+    color: $color-on-surface-variant;
+    opacity: 0.55;
+    font-style: italic;
+
+    ol.aside-footnotes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 1.5em;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        counter-reset: fn-counter;
+
+        li {
+            display: inline-flex;
+            align-items: baseline;
+            margin: 0;
+            counter-increment: fn-counter;
+
+            &::before {
+                content: counter(fn-counter) ".";
+                margin-right: 0.3em;
+                opacity: 0.7;
+            }
+
+            p {
+                margin: 0;
+                display: inline;
+            }
+        }
+    }
+}
+// ============================================
+// Tables - Better Spacing
+// ============================================
+.reveal table {
+    th {
+        padding-bottom: 0.6em;
+        border-bottom: 2px solid $color-outline-variant;
+    }
+
+    tbody tr:first-child td {
+        padding-top: 0.6em;
+    }
+}
+
+// ============================================
+// Grid Slot - Remove p margins for tighter layout
+// ============================================
+.reveal .slot p {
+    margin: 0;
+}
+
+@import "timeline";
+
+// ============================================
+// AI Frontier Figure (SVG Diagram)
+// ============================================
+.ai-figure {
+  --teal: #3a5e6e;
+  --blue: #dbe5e7;
+  --arrow: #e2eaec;
+  --pink: #eba6a8;
+  --danger: #c44b4f;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+
+  &__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .bg-white {
+    fill: #fff;
+  }
+
+  .agi-bg {
+    fill: var(--pink);
+    opacity: 0.85;
+  }
+
+  .pink-soft {
+    fill: var(--pink);
+    opacity: 0.60;
+    stroke: rgba(140, 60, 70, 0.35);
+    stroke-width: 3;
+  }
+
+  .pink-mid {
+    fill: var(--pink);
+    opacity: 0.75;
+    stroke: rgba(140, 60, 70, 0.45);
+    stroke-width: 3;
+  }
+
+  .pink-solid {
+    fill: var(--pink);
+    opacity: 0.85;
+    stroke: rgba(140, 60, 70, 0.55);
+    stroke-width: 3;
+  }
+
+  .circle {
+    fill: var(--blue);
+    stroke: var(--teal);
+    stroke-width: 4;
+  }
+
+  .circle-ghost {
+    fill: rgba(0, 0, 0, 0.07);
+    stroke: rgba(46, 100, 118, 0.35);
+    stroke-width: 4;
+  }
+
+  .arrow {
+    fill: var(--arrow);
+  }
+
+  .star {
+    fill: var(--teal);
+  }
+
+  text {
+    font-family: var(--font);
+    dominant-baseline: middle;
+  }
+
+  .quote {
+    font-style: italic;
+    fill: #111;
+    font-size: 32px;
+  }
+
+  .label {
+    fill: var(--teal);
+    font-size: 52px;
+  }
+
+  .danger {
+    fill: var(--danger);
+    font-size: 52px;
+  }
+
+  .agi {
+    fill: var(--teal);
+    font-size: 92px;
+    letter-spacing: 1px;
+  }
+}
